@@ -1,51 +1,237 @@
 ---
+// import global.css
+import "./../global.css";
+
+import Header from "./../components/Base/Header.astro";
+import Footer from "./../components/Base/Footer.astro";
 interface Props {
 	title: string;
+	description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+<style is:global lang="scss">
+:root {
+
+	--mobile-min: 320px;
+	--mobile-max: 639px;
+	--tablet-min: 640px;
+	--tablet-max: 1024px;
+	--desktop-min: 1025px;
+	--desktop-max: 1200px;
+
+  /**
+  ================================================
+  Global font settings
+  ================================================
+  */
+  --font-family: "Poppins", sans-serif;
+  --heading-one-size: 52px;
+  --heading-two-size: 36px;
+  --heading-three-size: 28px;
+  --paragraph-size: 16px;
+  --font-bold: 700;
+
+  /**
+  ================================================
+  Global color settings
+  ================================================
+  */
+  --primary-color: #F1005F;
+  --secondary-color: #04B5E7;
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    140deg,
+    #2a2a2a 70%,
+    var(--secondary-color) 100%
+  );
+  /** ========================================== */
+
+  /*
+  ================================================
+  border settings
+  ================================================
+  **/
+
+  --border-radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  font-family: var(--font-family);
+  background: #f9f9f9;
+  background-size: 224px;
+}
+
+main {
+  margin-top: 80px;
+}
+
+main > section {
+	margin: 3rem 0;
+	padding-inline: 20px;
+	@media (min-width: 1024px) {
+		margin: 200px;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+}
+
+h1 {
+  font-size: var(--heading-one-size);
+  font-weight: var(--font-bold);
+}
+
+h2 {
+  font-size: var(--heading-two-size);
+  font-weight: var(--font-bold);
+  color: var(--primary-color);
+}
+
+h3 {
+  font-size: var(--heading-three-size);
+  font-weight: var(--font-bold);
+}
+
+p {
+  font-size: var(--paragraph-size);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+	padding-left: 1rem;
+}
+
+/*
+===============================================
+global grid classes
+===============================================
+*/
+.container {
+  max-width: 1200px;
+	margin: auto;
+
+	@media (max-width: var(--mobile-max)) {
+		max-width: 100%;
+		padding: 0 20px;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	@media (min-width: 1024px) {
+		max-width: 992px;
 	}
+
+	@media (min-width: 1200px) {
+		max-width: 1140px;
+	}
+
+	@media (min-width: 1400px) {
+		max-width: 1320px;
+	}
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+}
+
+.col-half {
+  width: 50%;
+  flex: 0 0 50%;
+
+	@media (max-width: 768px) {
+		width: 100%;
+		flex: 0 0 100%;
+	}
+}
+
+.col-full {
+  width: 100%;
+  flex: 0 0 100%;
+}
+
+[class*="col-"] {
+  padding-inline: 20px;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex.align-center {
+	align-items: center;
+}
+
+.flex.column {
+	flex-direction: column;
+}
+
+.flex.justify-center {
+	justify-content: center;
+}
+
+.hero {
+  background: var(--accent-gradient);
+  padding: 100px 70px;
+  color: white;
+  border-radius:var(--border-radius);
+  -webkit-border-radius:var(--border-radius);
+  -moz-border-radius:var(--border-radius);
+  -ms-border-radius:var(--border-radius);
+  -o-border-radius:var(--border-radius);
+}
+
+.hero a {
+  color: var(--white);
+}
 </style>

@@ -1,0 +1,56 @@
+---
+  import {Image} from 'astro:assets';
+  import logo from "./../../../public/logo.png";
+---
+
+<header id="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-half">
+        <a href="/">
+          <Image src={logo} alt="Logo" />
+        </a>
+      </div>
+      <div class="col-half mainnavigation">
+        <nav>
+          <ul class="flex justify-end gap-x-4">
+            <li>
+              <a href="/">Forside</a>
+            </li>
+            <li>
+              <a href="/donate">Hvordan donerer jeg?</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+    background-color: #f9f9f9;
+    padding: 0 1rem;
+
+    .mainnavigation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    ul {
+      display: flex;
+      gap: 1em;
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+</style>
