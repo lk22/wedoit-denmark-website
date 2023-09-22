@@ -83,7 +83,7 @@ import WhoIsImage from '../../public/image2.png'
   <section class="who-is-section">
     <div class="container">
       <div class="row">
-        <div class="col-half">
+        <div class="col-half flex column justify-center">
           <h2>Hvem er We Do It Danmark</h2>
           <p>
             We Do It Danmark er et privat velgørenheds projekt, der støtter om danmarks børn og unge med social udsættelse, med brugt elektronik og andet udstyr.
@@ -121,11 +121,30 @@ import WhoIsImage from '../../public/image2.png'
 
 <style lang="scss">
 
-  .hero h1 {
-    width: 66%;
+  .hero {
+    background-image: url('/banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 70px;
+    color: white;
+    border-radius:var(--border-radius);
+    -webkit-border-radius:var(--border-radius);
+    -moz-border-radius:var(--border-radius);
+    -ms-border-radius:var(--border-radius);
+    -o-border-radius:var(--border-radius);
 
+    a {
+      color: var(--white);
+    }
+
+    h1 {
+      width: 66%;
+      @media (max-width: var(--mobile-max)) {
+        width: 100%;
+      }
+    }
   }
-
+  
   .image-container {
     position: relative;
     
