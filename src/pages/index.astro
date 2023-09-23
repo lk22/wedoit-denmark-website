@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import {Image} from 'astro:assets'
 import Slide from '../../public/image.png'
 import WhoIsImage from '../../public/image2.png'
+
+import Slider from './../components/VueComponents/Slider.vue'
 ---
 
 <Layout 
@@ -68,6 +70,9 @@ import WhoIsImage from '../../public/image2.png'
         <div class="col-half">
           <div class="image-container image-bg-frame-left">
             <Image src={Slide} alt="WeDoIt child and youth slide" />
+            <Slider 
+              :slides=[Slide]
+            />
           </div>
         </div>
         <div class="col-half h-full flex justify-center column">
@@ -144,7 +149,14 @@ import WhoIsImage from '../../public/image2.png'
       }
     }
   }
-  
+
+  .we-have-helped-section .container {
+    h2,
+    p {
+      padding-inline: 5rem;
+    }
+  }
+
   .image-container {
     position: relative;
     
@@ -156,6 +168,10 @@ import WhoIsImage from '../../public/image2.png'
         margin-left: 30px;
         z-index: 3;
         position: relative;
+
+        @media (max-width: 639px) {
+          margin-left: 0;
+        }
       }
       
       &::before,
@@ -201,12 +217,17 @@ import WhoIsImage from '../../public/image2.png'
         position: absolute;
         border-radius: 10px;
       }
+
       &::before {
         height: 97%;
         width: 70%;
         background-color: var(--secondary-color);
         right: 0;
         top: -30px;
+
+        @media (min-width: 1200px) and (max-width: 1439px) {
+          width: 80%;
+        }
       }
 
       &::after {
@@ -215,6 +236,15 @@ import WhoIsImage from '../../public/image2.png'
         background-color: var(--primary-color);
         left: 115px;
         bottom: -30px;
+
+        @media (max-width: 1199px) {
+          display: none;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1439px) {
+          left: 30px;
+          width: 79%;
+        }
       }
     }
   }
