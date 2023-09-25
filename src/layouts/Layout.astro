@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -21,6 +22,10 @@ const { title, description } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
 	</head>
 	<body>
 		<Header />
@@ -241,3 +246,28 @@ global grid classes
   color: var(--white);
 }
 </style>
+
+<script>
+  import Swiper from "swiper/bundle";
+  const swiper = new Swiper('.swiper', {
+  effect: "cards",
+  cardsEffect: {
+    slideShadows: false,
+  },
+  grabCursor: true,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+  },
+
+  speed: 1000,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + "</span>";
+    },
+  },
+
+});
+</script>

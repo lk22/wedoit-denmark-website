@@ -1,0 +1,33 @@
+---
+import Swiper from 'swiper';
+
+import Slide from './Slide.astro';
+
+// import SlideOne from '../../public/image.png';
+
+new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 30,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  }
+})
+  const { images } = Astro.props;
+---
+<div class="swiper">
+  <div class="swiper-wrapper">
+
+    {
+      images.map((image:string) => (
+        <Slide slide={image} client:load/>
+      ))
+    }
+  </div>
+</div>

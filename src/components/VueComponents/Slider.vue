@@ -6,39 +6,61 @@
 
   import 'swiper/css';
 
-  const onSwiper = (swiper) => {
+  const onSwiper = (Swiper) => {
     console.log('onSwiper')
   }
 
   const onSlideChange = () => {
-    console.log('onSlideChange')
+    console.log("onSwiperChange")
   }
 
-  defineProps({
+  const props = defineProps({
     slidesPerView: {
       type: Number,
-      default: 1,
+      default: 1
     },
     spaceBetween: {
       type: Number,
-      default: 50,
+      default: 30
+    },
+    pagination: {
+      type: Object,
+      default: () => {
+        return {
+          clickable: true
+        }
+      }
     },
     slides: {
       type: Array,
-      default: () => []
+      default: () => {
+        return []
+      }
     }
   })
+
+  // log props
+  console.log(props.slides)
 </script>
 
 <template>
-  <swiper
-    :slides-per-view="1"
-    :space-between="50"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
+  <Swiper
+    :onSwiper="onSwiper"
+    :onSlideChange="onSlideChange"
+    :slidesPerView="props.slidesPerView"
+    :spaceBetween="props.spaceBetween"
+    :pagination="{ clickable: true }"
+    :navigation="true"
+    :scrollbar="{ draggable: true }"
+    class="mySwiper"
   >
-    <swiper-slide v-for="slide in slides" key="slide">
-      <img :src="slide" alt="slide image"/>
-    </swiper-slide>
-  </swiper>
+    <div class="slide" v-for="slide in props.slides" :key="slide">
+      <swiper-slide>
+        <!-- 
+          render image
+         -->
+        <img :src="slide" alt="slide1" />
+      </swiper-slide>
+    </div>
+  </Swiper>
 </template>

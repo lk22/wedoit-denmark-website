@@ -1,10 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Image} from 'astro:assets'
-import Slide from '../../public/image.png'
 import WhoIsImage from '../../public/image2.png'
-
-import Slider from './../components/VueComponents/Slider.vue'
+import ImageOne from '../../public/slides/image.png'
 ---
 
 <Layout 
@@ -69,10 +67,37 @@ import Slider from './../components/VueComponents/Slider.vue'
       <div class="row">
         <div class="col-half">
           <div class="image-container image-bg-frame-left">
-            <Image src={Slide} alt="WeDoIt child and youth slide" />
-            <Slider 
-              :slides=[Slide]
-            />
+            <!-- Slider main container -->
+              <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                  </div>
+                  <div class="swiper-slide">
+                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                  </div>
+                  <div class="swiper-slide">
+                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                  </div>
+                  <div class="swiper-slide">
+                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                  </div>
+                  <div class="swiper-slide">
+                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                  </div>
+                  <div class="swiper-slide">
+                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                  </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination swiper-bullets">
+                  <span class="swiper-pagination-bullet"></span>
+                  <span class="swiper-pagination-bullet"></span>
+                  <span class="swiper-pagination-bullet"></span>
+                </div>
+              </div>
           </div>
         </div>
         <div class="col-half h-full flex justify-center column">
@@ -245,6 +270,21 @@ import Slider from './../components/VueComponents/Slider.vue'
           left: 30px;
           width: 79%;
         }
+      }
+    }
+
+    .swiper .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: -60px;
+
+      .swiper-pagination-bullet-active {
+        background: var(--primary-color) !important;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: #dd3061;
       }
     }
   }
