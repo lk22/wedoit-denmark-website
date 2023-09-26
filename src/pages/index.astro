@@ -157,11 +157,36 @@ import ImageOne from '../../public/slides/image.png'
     background-repeat: no-repeat;
     padding: 100px 70px;
     color: white;
-    border-radius:var(--border-radius);
-    -webkit-border-radius:var(--border-radius);
-    -moz-border-radius:var(--border-radius);
-    -ms-border-radius:var(--border-radius);
-    -o-border-radius:var(--border-radius);
+    box-shadow: 0px 7px 11px -8px #2a2a2a;
+
+    @media (min-width: 768px) {
+      border-radius:var(--border-radius);
+      -webkit-border-radius:var(--border-radius);
+      -moz-border-radius:var(--border-radius);
+      -ms-border-radius:var(--border-radius);
+      -o-border-radius:var(--border-radius);
+    }
+
+    a {
+      color: var(--white);
+    }
+
+    @media (max-width: 767px) {
+      border-radius:0px;
+      -webkit-border-radius:0px;
+      -moz-border-radius:0px;
+      -ms-border-radius:0px;
+      -o-border-radius:0px;
+      padding: 0 20px;;
+
+      display: flex;
+      align-items: center;
+      height: 300px;
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
 
     a {
       color: var(--white);
@@ -169,19 +194,40 @@ import ImageOne from '../../public/slides/image.png'
 
     h1 {
       width: 66%;
-      @media (max-width: var(--mobile-max)) {
+      @media (max-width: 767px) {
         width: 100%;
       }
     }
   }
 
-  .we-have-helped-section .container {
-    h2,
-    p {
-      padding-inline: 5rem;
+  .we-have-helped-section {
+    .row {
+
+      @media (max-width: 768px) {
+        flex-direction: column-reverse;
+      }
+      .container {
+        h2,
+        p {
+          padding-inline: 5rem;
+        }
+      
+        @media (max-width: 768px) {
+          h2 {
+            margin-top: 6rem;
+          }
+      
+          p,
+          h2 {
+            padding-inline: 0;
+          }
+        }
+      }
     }
   }
 
+  .we-have-helped-section .container {
+  }
   .image-container {
     position: relative;
     
@@ -202,6 +248,13 @@ import ImageOne from '../../public/slides/image.png'
       &::before,
       &::after {
         border-radius: 10px;
+      }
+
+      @media (max-width: 768px) {
+        &::before,
+        &::after {
+          display: none;
+        }
       }
 
       &::before {
@@ -230,10 +283,19 @@ import ImageOne from '../../public/slides/image.png'
     &.image-bg-frame-right {
       display: flex;
       justify-content: flex-end;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        margin-top: 3rem;
+      }
       img {
         z-index: 3;
         position: relative;
         margin-right: 30px;
+
+        @media (max-width: 639px) {
+          border-radius: 20px;
+        }
       }
 
       &::before,
@@ -250,9 +312,14 @@ import ImageOne from '../../public/slides/image.png'
         right: 0;
         top: -30px;
 
+        @media (max-width: 768px) {
+          display: none;
+        }
+
         @media (min-width: 1200px) and (max-width: 1439px) {
           width: 80%;
         }
+        
       }
 
       &::after {
