@@ -3,6 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import {Image} from 'astro:assets'
 import WhoIsImage from '../../public/image2.png'
 import ImageOne from '../../public/slides/image.png'
+import SlideTwo from '../../public/slides/slide2.jpg'
+import SlideThree from '../../public/slides/slide3.jpg'
+import SlideFour from '../../public/slides/slide4.jpg'
+import SlideFive from '../../public/slides/slide5.jpg'
+import SlideSix from '../../public/slides/slide6.jpg'
+import SlideSeven from '../../public/slides/slide7.jpg'
 ---
 
 <Layout 
@@ -73,22 +79,22 @@ import ImageOne from '../../public/slides/image.png'
                 <div class="swiper-wrapper">
                   <!-- Slides -->
                   <div class="swiper-slide">
-                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                    <Image src={SlideSeven} alt="Slide seven" height={430} width={520} />
                   </div>
                   <div class="swiper-slide">
-                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                    <Image src={SlideTwo} alt="slide two" height={430} width={520} />
                   </div>
                   <div class="swiper-slide">
-                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                    <Image src={SlideThree} alt="Slide three" height={430} width={520} />
                   </div>
                   <div class="swiper-slide">
-                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                    <Image src={SlideFour} alt="Slide four" height={430} width={520} />
                   </div>
                   <div class="swiper-slide">
-                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                    <Image src={SlideFive} alt="Slide five" height={430} width={520} />
                   </div>
                   <div class="swiper-slide">
-                    <Image src={ImageOne} alt="WeDoIt Danmark har hjulpet mere end 100 børn og unge" height={500} width={500} />
+                    <Image src={SlideSix} alt="Slide six" height={430} width={520} />
                   </div>
                 </div>
                 <!-- If we need pagination -->
@@ -104,7 +110,7 @@ import ImageOne from '../../public/slides/image.png'
           <h2>
             Se hvem vi har hjulpet
           </h2>
-          <p>Vi har hjulpet mere en 100+ børn og unge med diverse donationer fra danskere rundt i hele landet.</p>
+          <p>Vi har hjulpet mere end 500+ børn og unge med diverse donationer fra danskere rundt i hele landet.</p>
         </div>
       </div>
     </div>
